@@ -1,1 +1,81 @@
-
+{
+  "name": "Product",
+  "type": "object",
+  "properties": {
+    "artisan_id": {
+      "type": "string",
+      "description": "ID of the artisan who created this product"
+    },
+    "title_english": {
+      "type": "string",
+      "description": "Product title in English"
+    },
+    "title_hindi": {
+      "type": "string",
+      "description": "Product title in Hindi"
+    },
+    "title_regional": {
+      "type": "string",
+      "description": "Product title in regional language"
+    },
+    "description_short": {
+      "type": "string",
+      "description": "Short product description"
+    },
+    "description_long": {
+      "type": "string",
+      "description": "Detailed product description with heritage story"
+    },
+    "images": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Array of image URLs"
+    },
+    "pricing": {
+      "type": "object",
+      "properties": {
+        "retail_price": {"type": "number"},
+        "bulk_price": {"type": "number"},
+        "minimum_order": {"type": "number"}
+      },
+      "description": "Pricing information"
+    },
+    "specifications": {
+      "type": "object",
+      "properties": {
+        "materials": {"type": "array", "items": {"type": "string"}},
+        "dimensions": {"type": "string"},
+        "weight": {"type": "string"},
+        "colors_available": {"type": "array", "items": {"type": "string"}}
+      },
+      "description": "Product specifications"
+    },
+    "authenticity": {
+      "type": "object",
+      "properties": {
+        "certificate_id": {"type": "string"},
+        "blockchain_hash": {"type": "string"},
+        "craft_tradition": {"type": "string"},
+        "origin_verified": {"type": "boolean"}
+      },
+      "description": "Authenticity and blockchain information"
+    },
+    "marketing_content": {
+      "type": "object",
+      "properties": {
+        "hashtags": {"type": "array", "items": {"type": "string"}},
+        "instagram_caption": {"type": "string"},
+        "whatsapp_message": {"type": "string"},
+        "seo_tags": {"type": "array", "items": {"type": "string"}}
+      },
+      "description": "Auto-generated marketing content"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "processing", "published", "out_of_stock"],
+      "default": "draft",
+      "description": "Product status"
+    }
+  },
+  "required": ["artisan_id", "title_english"]
+}
