@@ -1,1 +1,49 @@
-
+{
+  "name": "MarketingCampaign",
+  "type": "object",
+  "properties": {
+    "artisan_id": {
+      "type": "string",
+      "description": "ID of the artisan"
+    },
+    "campaign_type": {
+      "type": "string",
+      "enum": ["festival", "seasonal", "product_launch", "story_telling", "heritage", "custom"],
+      "description": "Type of marketing campaign"
+    },
+    "title": {
+      "type": "string",
+      "description": "Campaign title"
+    },
+    "content": {
+      "type": "object",
+      "properties": {
+        "instagram_reel_script": {"type": "string"},
+        "instagram_post_caption": {"type": "string"},
+        "whatsapp_forward": {"type": "string"},
+        "youtube_shorts_script": {"type": "string"},
+        "website_banner_text": {"type": "string"}
+      },
+      "description": "Generated marketing content for different platforms"
+    },
+    "hashtags": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Recommended hashtags"
+    },
+    "target_festival": {
+      "type": "string",
+      "description": "If festival campaign, which festival"
+    },
+    "performance_predictions": {
+      "type": "object",
+      "properties": {
+        "expected_reach": {"type": "number"},
+        "best_platforms": {"type": "array", "items": {"type": "string"}},
+        "optimal_timing": {"type": "string"}
+      },
+      "description": "AI predictions for campaign performance"
+    }
+  },
+  "required": ["artisan_id", "campaign_type", "title"]
+}
