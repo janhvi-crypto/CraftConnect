@@ -1,1 +1,48 @@
-
+{
+  "name": "Artisan",
+  "type": "object",
+  "properties": {
+    "business_name": {
+      "type": "string",
+      "description": "Name of the artisan's craft business"
+    },
+    "craft_type": {
+      "type": "string",
+      "enum": ["pottery", "textiles", "jewelry", "woodwork", "metalwork", "paintings", "sculptures", "embroidery", "leather_goods", "bamboo_crafts", "stone_carving", "glass_work", "other"],
+      "description": "Primary type of craft"
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "state": {"type": "string"},
+        "district": {"type": "string"},
+        "village_city": {"type": "string"},
+        "pincode": {"type": "string"}
+      },
+      "description": "Artisan's location details"
+    },
+    "contact": {
+      "type": "object",
+      "properties": {
+        "phone": {"type": "string"},
+        "whatsapp": {"type": "string"},
+        "instagram": {"type": "string"}
+      },
+      "description": "Contact information"
+    },
+    "languages": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Languages spoken by artisan"
+    },
+    "heritage_story": {
+      "type": "string",
+      "description": "Background story about the craft tradition"
+    },
+    "specialization": {
+      "type": "string",
+      "description": "What makes this artisan's work unique"
+    }
+  },
+  "required": ["business_name", "craft_type"]
+}
